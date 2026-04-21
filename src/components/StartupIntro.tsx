@@ -46,7 +46,7 @@ const StartupIntro: React.FC<StartupIntroProps> = ({ onComplete }) => {
             className="text-center px-6"
           >
             <h2 className="font-serif text-2xl md:text-3xl text-white italic font-light leading-relaxed">
-              "Love is not just looking at each other,<br />it's looking in the same direction."
+              "Connection is not just feeling for each other,<br />it's looking in the same direction."
             </h2>
           </motion.div>
         )}
