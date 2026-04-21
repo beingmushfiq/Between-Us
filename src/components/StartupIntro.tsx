@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import { INTRO_QUOTES } from '../data/quotes';
 
 interface StartupIntroProps {
   onComplete: () => void;
@@ -7,8 +8,10 @@ interface StartupIntroProps {
 
 const StartupIntro: React.FC<StartupIntroProps> = ({ onComplete }) => {
   const [step, setStep] = useState(0);
+  const [quote, setQuote] = useState('');
 
   useEffect(() => {
+    setQuote(INTRO_QUOTES[Math.floor(Math.random() * INTRO_QUOTES.length)]);
     const timers = [
       setTimeout(() => setStep(1), 1000),
       setTimeout(() => setStep(2), 3000),
@@ -45,8 +48,8 @@ const StartupIntro: React.FC<StartupIntroProps> = ({ onComplete }) => {
             transition={{ duration: 1.5, ease: 'easeInOut' }}
             className="text-center px-6"
           >
-            <h2 className="font-serif text-2xl md:text-3xl text-white italic font-light leading-relaxed">
-              "Connection is not just feeling for each other,<br />it's looking in the same direction."
+            <h2 className="font-serif text-2xl md:text-3xl text-white italic font-light leading-relaxed max-w-2xl">
+              "{quote}"
             </h2>
           </motion.div>
         )}

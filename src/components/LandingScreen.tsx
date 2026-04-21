@@ -26,8 +26,8 @@ const LandingScreen: React.FC<LandingScreenProps> = ({ onBegin }) => {
             </header>
             
             <p className="text-[10px] sm:text-[11px] uppercase tracking-[0.4em] opacity-40 mb-12 leading-loose">
-              A space for honest connection.<br />
-              You'll take turns. Be truthful.
+              A space for meaningful dialogue.<br />
+              Take turns. Be open. Stay present.
             </p>
             
             <SoftButton onClick={() => setShowInputs(true)}>Start Experience</SoftButton>
@@ -66,7 +66,7 @@ const LandingScreen: React.FC<LandingScreenProps> = ({ onBegin }) => {
 
             <div className="pt-4 h-24 flex items-center justify-center">
               <SoftButton onClick={() => onBegin(names)} disabled={!isValid}>
-                Begin Correlation
+                Begin Connection
               </SoftButton>
             </div>
           </div>

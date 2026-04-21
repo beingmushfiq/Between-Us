@@ -7,18 +7,48 @@ import InputScreen from './components/InputScreen';
 import PassScreen from './components/PassScreen';
 import RevealScreen from './components/RevealScreen';
 import StartupIntro from './components/StartupIntro';
-import { PHASES } from './data/phases';
-import { AppState, TurnState, PhaseAnswers, PlayerNames } from './types';
+import { QUESTION_POOL } from './data/questions';
+import { AppState, TurnState, PhaseAnswers, PlayerNames, PhaseData } from './types';
+
+// Helper to get random item from array
+const pickRandom = <T,>(arr: T[]): T => arr[Math.floor(Math.random() * arr.length)];
+
+// Generate session questions
+const generateSessionPhases = (): PhaseData[] => {
+  const p1 = pickRandom(QUESTION_POOL.phase1);
+  const p2 = pickRandom(QUESTION_POOL.phase2);
+  const p3 = pickRandom(QUESTION_POOL.phase3);
+  const p4 = pickRandom(QUESTION_POOL.phase4);
+  const p5 = pickRandom(QUESTION_POOL.phase5);
+
+  return [
+    { id: 'p1', number: 'Phase I', title: p1.title, promptA: p1.prompt, promptB: p1.prompt },
+    { 
+      id: 'p2', 
+      number: 'Phase II', 
+      title: p2.title, 
+      promptA: p2.prompt, 
+      promptB: (aAnswer: string) => `They said:\n\n"${aAnswer}"\n\nWhat is your response?` 
+    },
+    { id: 'p3', number: 'Phase III', title: p3.title, promptA: p3.prompt, promptB: p3.prompt },
+    { id: 'p4', number: 'Phase IV', title: p4.title, promptA: p4.prompt, promptB: p4.prompt },
+    { id: 'p5', number: 'Phase V', title: p5.title, promptA: p5.prompt, promptB: p5.prompt },
+  ];
+};
 
 export default function App() {
   const [appState, setAppState] = useState<AppState>('intro');
   const [playerNames, setPlayerNames] = useState<PlayerNames>({ A: '', B: '' });
+  
+  // Use session phases
+  const [sessionPhases] = useState(() => generateSessionPhases());
+  
   const [phaseIndex, setPhaseIndex] = useState(0);
   const [turnState, setTurnState] = useState<TurnState>('intro');
   const [allAnswers, setAllAnswers] = useState<Record<string, PhaseAnswers>>({});
   
   // Current phase tracking
-  const currentPhase = useMemo(() => PHASES[phaseIndex], [phaseIndex]);
+  const currentPhase = useMemo(() => sessionPhases[phaseIndex], [phaseIndex, sessionPhases]);
   const currentAnswers = useMemo(() => 
     allAnswers[currentPhase?.id] || { A: '', B: '' }, 
     [allAnswers, currentPhase]
@@ -35,13 +65,13 @@ export default function App() {
   }, [currentPhase?.id]);
 
   const advancePhase = useCallback(() => {
-    if (phaseIndex < PHASES.length - 1) {
+    if (phaseIndex < sessionPhases.length - 1) {
       setPhaseIndex(i => i + 1);
       setTurnState('intro');
     } else {
       setAppState('outro');
     }
-  }, [phaseIndex]);
+  }, [phaseIndex, sessionPhases.length]);
 
   const handleBegin = useCallback((names: PlayerNames) => {
     setPlayerNames(names);
@@ -59,7 +89,7 @@ export default function App() {
   }
 
   if (appState === 'outro') {
-    return <OutroScreen phases={PHASES} allAnswers={allAnswers} playerNames={playerNames} />;
+    return <OutroScreen phases={sessionPhases} allAnswers={allAnswers} playerNames={playerNames} />;
   }
 
   // --- PLAYING STATE RENDERERS ---
