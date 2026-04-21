@@ -41,7 +41,7 @@ export default function App() {
   const [playerNames, setPlayerNames] = useState<PlayerNames>({ A: '', B: '' });
   
   // Use session phases
-  const [sessionPhases] = useState(() => generateSessionPhases());
+  const [sessionPhases, setSessionPhases] = useState<PhaseData[]>(() => generateSessionPhases());
   
   const [phaseIndex, setPhaseIndex] = useState(0);
   const [turnState, setTurnState] = useState<TurnState>('intro');
@@ -50,11 +50,12 @@ export default function App() {
   // Current phase tracking
   const currentPhase = useMemo(() => sessionPhases[phaseIndex], [phaseIndex, sessionPhases]);
   const currentAnswers = useMemo(() => 
-    allAnswers[currentPhase?.id] || { A: '', B: '' }, 
+    (currentPhase && allAnswers[currentPhase.id]) || { A: '', B: '' }, 
     [allAnswers, currentPhase]
   );
 
   const handleUpdateAnswer = useCallback((actor: 'A' | 'B', text: string) => {
+    if (!currentPhase) return;
     setAllAnswers(prev => ({
       ...prev,
       [currentPhase.id]: {
@@ -75,6 +76,11 @@ export default function App() {
 
   const handleBegin = useCallback((names: PlayerNames) => {
     setPlayerNames(names);
+    // REALLY randomize on every click
+    setSessionPhases(generateSessionPhases());
+    setPhaseIndex(0);
+    setAllAnswers({});
+    setTurnState('intro');
     setAppState('playing');
   }, []);
 
