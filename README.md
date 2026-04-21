@@ -2,7 +2,9 @@
 
 **Between Us** is a cinematic, emotionally immersive relationship experience designed for two people. It facilitates honest connection through a series of "Phases" where players take turns answering thought-provoking, deep-discovery prompts.
 
-![Between Us Logo](./between_us_logo.png)
+<div align="center">
+  <img src="./between_us_logo.png" alt="Between Us Logo" width="400" />
+</div>
 
 ## ✨ Features
 
