@@ -13,10 +13,10 @@ const StartupIntro: React.FC<StartupIntroProps> = ({ onComplete }) => {
   useEffect(() => {
     setQuote(INTRO_QUOTES[Math.floor(Math.random() * INTRO_QUOTES.length)]);
     const timers = [
-      setTimeout(() => setStep(1), 1000),
-      setTimeout(() => setStep(2), 3000),
-      setTimeout(() => setStep(3), 5500),
-      setTimeout(() => onComplete(), 7500),
+      setTimeout(() => setStep(1), 1000),      // "A Moment of Stillness"
+      setTimeout(() => setStep(2), 4000),      // Quote starts (Visible for 5s)
+      setTimeout(() => setStep(3), 9000),      // Title starts (Visible for 3s)
+      setTimeout(() => onComplete(), 12000),   // Complete
     ];
     return () => timers.forEach(clearTimeout);
   }, [onComplete]);

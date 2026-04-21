@@ -8,5 +8,15 @@ export const INTRO_QUOTES = [
   "To be known is to be loved, and to be loved is to be known.",
   "We are mirrors to one another, reflecting the parts we cannot see alone.",
   "True dialogue is the art of thinking together.",
-  "A single conversation across the table with a wise person is worth a month's study of books."
+  "A single conversation across the table with a wise person is worth a month's study of books.",
+  "What is uttered from the heart alone, will win the hearts of others to your own.",
+  "The most important thing in communication is hearing what isn't said.",
+  "Each friend represents a world in us, a world possibly not born until they arrive.",
+  "Love is the bridge between you and everything.",
+  "Words are a pretext. It is the inner bond that draws one person to another, not words.",
+  "The quality of your life is the quality of your relationships.",
+  "Vulnerability is the only bridge to build connection.",
+  "Deep listening is the kind of listening that can help relieve the suffering of another person.",
+  "The greatest gift you can give another is the purity of your attention.",
+  "Intimacy is the capacity to be rather weird with someone - and finding that that's ok with them."
 ];

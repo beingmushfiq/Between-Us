@@ -19,6 +19,18 @@ export const QUESTION_POOL = {
     {
       title: "The First Impression",
       prompt: "What was the very first thing you noticed about me that you've never told me?"
+    },
+    {
+      title: "Mirroring",
+      prompt: "What is a habit of mine that you've noticed yourself picking up?"
+    },
+    {
+      title: "Silent Support",
+      prompt: "When was a time you felt supported by me without any words being exchanged?"
+    },
+    {
+      title: "Aura",
+      prompt: "If our connection had a scent or a temperature, what would it be right now?"
     }
   ],
   phase2: [
@@ -37,6 +49,18 @@ export const QUESTION_POOL = {
     {
       title: "Vulnerability",
       prompt: "Ask me something that you are afraid might change how I see you."
+    },
+    {
+      title: "The Pivot",
+      prompt: "What is a belief you used to hold strongly that I've caused you to reconsider?"
+    },
+    {
+      title: "Hidden Talent",
+      prompt: "Ask about something you suspect I'm good at but have never seen me do."
+    },
+    {
+      title: "Unseen Burden",
+      prompt: "Ask me about a challenge I'm currently facing that I haven't mentioned to you yet."
     }
   ],
   phase3: [
@@ -55,6 +79,18 @@ export const QUESTION_POOL = {
     {
       title: "The Anchor",
       prompt: "Describe a moment where you felt most 'present' while we were together."
+    },
+    {
+      title: "Small Bloom",
+      prompt: "What is a tiny, seemingly insignificant moment between us that made you smile later that day?"
+    },
+    {
+      title: "Shared Weather",
+      prompt: "Describe a time we were 'weathering' something together, and how it felt to have me there."
+    },
+    {
+      title: "The Spark",
+      prompt: "What was the exact moment you realized our connection was going to be meaningful?"
     }
   ],
   phase4: [
@@ -73,6 +109,18 @@ export const QUESTION_POOL = {
     {
       title: "The Reflection",
       prompt: "What is a quality of mine that you sometimes wish you had more of in yourself?"
+    },
+    {
+      title: "Soul Color",
+      prompt: "If you could see my internal world as a landscape, what would it look like?"
+    },
+    {
+      title: "Echoes",
+      prompt: "What's a piece of advice I've given you that still echoes in your mind?"
+    },
+    {
+      title: "The Anchor",
+      prompt: "In what way do I ground you when things feel chaotic?"
     }
   ],
   phase5: [
@@ -91,6 +139,18 @@ export const QUESTION_POOL = {
     {
       title: "The Legacy",
       prompt: "If this were our very last conversation, what is the one thing you'd want me to remember about you?"
+    },
+    {
+      title: "Old Age",
+      prompt: "If we are both 80 years old, sitting on a porch, what are we laughing about from today?"
+    },
+    {
+      title: "The Promise",
+      prompt: "What is one thing you can promise me right now, without knowing what the future holds?"
+    },
+    {
+      title: "The Evolution",
+      prompt: "How do you think we will have changed each other by the time we say our next goodbye?"
     }
   ]
 };

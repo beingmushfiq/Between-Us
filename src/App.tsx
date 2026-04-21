@@ -152,7 +152,7 @@ export default function App() {
           playerNameA={playerNames.A}
           playerNameB={playerNames.B}
           onNext={advancePhase}
-          isFinal={phaseIndex === PHASES.length - 1}
+          isFinal={phaseIndex === sessionPhases.length - 1}
         />
       )}
     </main>
